@@ -5,7 +5,7 @@ function Header() {
     return (  
         <header>
             <span>Olá, visitantes</span>
-            <h1>Bem-vindo ao Tadascine</h1>
+            <h1>Bem-vindo ao Tadascine!!</h1>
             <Navbar/>
         </header>
     );
