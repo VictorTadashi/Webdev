@@ -1,31 +1,37 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import {Link} from 'react-router-dom'
 
 function Filmes() {
 
 
     const [filmes, setFilmes] = useState([])
-
     const apiKey='api_key=7c572a9f5b3ba776080330d23bb76e1e'
     const urlBase = 'https://api.themoviedb.org/3/movie/'
     const urlImg = 'https://image.tmdb.org/t/p/w342/'
 
-
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=eb3b2297dfc1a7fdee0f68a2993d57b4')
+useEffect(() => {
+    fetch(`${urlBase}popular?${apiKey}`)
     .then(response => response.json())
     .then(response => setFilmes(response.results))
     .catch(erro => console.log(erro))
+},[])
+   
 
     return (  
         <>
         <h1>Filmes</h1>
+        <div className="grid grid-cols-3 gap-4">
         {
             filmes.map(filme =>(
-                <div className="card-filme" key {filme.id}>
+                <div className="card-filme" key={filme.id}>
+                    <img src={`${urlImg}${filme.poster_path}`}/>
                     <h1>{filme.title}</h1>
+                    <Link to={`${filmes.id}`} className="bg-sky-500">Saber Mais</Link>
                 </div>
                 
             ))
         }
+        </div>
         
         </>
     );
