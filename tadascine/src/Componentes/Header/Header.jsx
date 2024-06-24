@@ -3,9 +3,8 @@ import Navbar from "../Navbar/Navbar";
 
 function Header() {
     return (  
-        <header className="flex justify-around bg-primary-raul text-slate-50 p-4">
-            <span>Olá, visitantes</span>
-            <h1>Bem-vindo ao Tadascine!!!</h1>
+        <header className="flex justify-between text-slate-50 p-4">
+            <h1 className="text-3xl">TadasCine</h1>
             <Navbar/>
         </header>
     );
